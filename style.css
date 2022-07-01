@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.output> div{
+    border: solid 1px;
+}
+.entry{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+input{
+    width: 40%;
+}
+
+.add{
+    width:40%;
+}
