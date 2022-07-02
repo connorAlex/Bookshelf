@@ -1,9 +1,19 @@
 body{
+    display:flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 }
+.output{
+    display:grid;
+    background-color: lightblue;
+    gap: 10px;
+    margin: 30px;
+}
 .output> div{
-    border: solid 1px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 4fr 2fr 2fr 2fr 1fr;
 }
 .entry{
     display:flex;
@@ -11,6 +21,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin: 10px;
 }
 input{
     width: 40%;
