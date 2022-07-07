@@ -33,6 +33,7 @@ function addBookToLibrary(){
     }
 
     showBooks();
+    off();
 }
 
 //update DOM with all books in myLibrary array
@@ -94,19 +95,20 @@ function validate(){
 //reset the input values to empty string
 function reset(values){
     values.forEach(e => e = "");
+    console.log("ASDf");
 }
 
 let add = document.querySelector(".add");
 add.addEventListener("click",addBookToLibrary);
 
 let addBook = document.querySelector(".addBook");
-addBook.addEventListener("mouseenter",on);
-addBook.addEventListener("mouseleave",off);
+addBook.addEventListener("click",on);
+//addBook.addEventListener("click",off);
 
 function on(e){
-    document.querySelector(".entry").style.display = "flex";
+    document.querySelector(".overlay").style.display = "flex";
 }
 
 function off(e){
-    document.querySelector(".entry").style.display = "none";
+    document.querySelector(".overlay").style.display = "none";
 }

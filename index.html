@@ -8,23 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    <div class = "header">My Bookshelf</div>
-    <div class = "entry">
-        Submit a Book
-        <input required id = "title" type = "text" placeholder="title">
-        <input  required type = "text" id = "author" placeholder="author">
-        <input required type = "text" id = "pages" placeholder = "pages">
-        <input id = "read" placeholder = "Have you read this?" class = "datalist" list = "dlread">
-        <datalist id = "dlread">
-            <option>Yes</option>
-            <option>No</option>
-        </datalist>
-        <button class="add">Add Book </button>
+    <div class = "header">My Bookshelf<button class = "addBook">Add Book</button></div>
+    <div class = "overlay">
+        <div class = "entry">
+            Submit a Book
+            <input required id = "title" type = "text" placeholder="title">
+            <input  required type = "text" id = "author" placeholder="author">
+            <input required type = "text" id = "pages" placeholder = "pages">
+            <input id = "read" placeholder = "Have you read this?" class = "datalist" list = "dlread">
+            <datalist id = "dlread">
+                <option>Yes</option>
+                <option>No</option>
+            </datalist>
+            <button class="add">Add to Shelf </button>
+        
+        </div>
     </div>
    
     
     <div class = "container">
-        <div class = "addBook">Add</div>
+        
         <div class = "output">
             <div>
                 <div>asdf</div> 
