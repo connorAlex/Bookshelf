@@ -8,18 +8,38 @@
     <title>Document</title>
 </head>
 <body>
+    <div class = "header">My Bookshelf</div>
     <div class = "entry">
-        This is your bookshelf.
+        Submit a Book
         <input required id = "title" type = "text" placeholder="title">
         <input  required type = "text" id = "author" placeholder="author">
-        <input requried type = "text" id = "pages" placeholder = "pages">
+        <input required type = "text" id = "pages" placeholder = "pages">
+        <input id = "read" placeholder = "Have you read this?" class = "datalist" list = "dlread">
+        <datalist id = "dlread">
+            <option>Yes</option>
+            <option>No</option>
+        </datalist>
         <button class="add">Add Book </button>
     </div>
    
     
-    <div class = "output">
-        <!--Books go here-->
+    <div class = "container">
+        <div class = "addBook">Add</div>
+        <div class = "output">
+            <div>
+                <div>asdf</div> 
+                <div>asdf</div> 
+                <div>asdf left</div>
+                <div>read?</div>
+                <button onclick="removeBook(0)" class="remove">
+                            X
+                </button>
+            </div>
+            <!--Books go here-->
+        </div>
+        
     </div>
+    
     
 
     </div>
