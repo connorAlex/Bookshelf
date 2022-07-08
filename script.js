@@ -23,17 +23,17 @@ function addBookToLibrary(){
 
     const newBook = new Book(data.title,data.author,data.pages);
     checkRead(data.read);
-    myLibrary.push(newBook);
 
+    myLibrary.push(newBook);
 
     function checkRead(isBookRead) {
         if (isBookRead === "Yes") {
             newBook.hasRead = true;
         }
     }
-
-    showBooks();
     off();
+    showBooks();
+    
 }
 
 //update DOM with all books in myLibrary array
@@ -42,26 +42,36 @@ function showBooks(){
     output.innerHTML = "";
     myLibrary.forEach(function (e,i) {
         let readOutput = "Unread";
-        
+        let readOutputInverse = "Read"
         if (e.hasRead === true){
-            readOutput = "Have Read";
+            readOutput = "Read";
+            readOutputInverse = "Unread";
         }
+        
 
+        //this is book object displayed on the "shelf"
         output.innerHTML =  
-            `<div>   
-                <div>${e.title}</div> 
-                <div>${e.author}</div> 
-                <div>${e.pages} left</div>
+            `<div >   
+
+                <div class = "title">${e.title}</div>
+                <div class = "author">${e.author}</div>
+                <div>${e.pages} pages</div>
                 <div>${readOutput}</div>
-                <button 
-                        onclick = "removeBook(${i})" 
-                        class = "remove">
-                            X
-                </button>
+
+                <div>
+                    <button id = "readCheckbox" data-item = "${i}" onclick = "readBook(this.dataset.item)"> ${readOutputInverse} </button>
+                    <button 
+                            onclick = "removeBook(${i})" 
+                            class = "remove">
+                                X
+                    </button>
+                </div>
+
             </div>` + output.innerHTML;
         }
     );    
 }
+
 
 //remove a specific book from the stack
 function removeBook(id){
@@ -83,32 +93,46 @@ function validate(){
     
     let values = [title, author, pages ,read];
     let data = values;
+
     for (let i = 0; i < data.length; i++){
         if (data[i] === ""){
             return false;
         }
     }
-    reset(values);
+    document.getElementById('title').value = "";
+    //reset(values);
     return {'title':data[0], 'author':data[1], 'pages':data[2], 'read':data[3]};
 }
 
 //reset the input values to empty string
 function reset(values){
-    values.forEach(e => e = "");
-    console.log("ASDf");
+    values.forEach(e => {e = ""; console.log(e);});
+    
 }
+
+// create overlay
+function on(e){
+    document.querySelector(".overlay").style.display = "flex";
+}
+
+// remove overlay
+function off(e){
+    document.querySelector(".overlay").style.display = "none";
+}
+
+function readBook(e){
+    //get the myLibrary item based on this index and toggle the .read
+    myLibrary[e].hasRead = !myLibrary[e].hasRead;
+    showBooks();
+}
+
+
+// Add event listeners to buttons
 
 let add = document.querySelector(".add");
 add.addEventListener("click",addBookToLibrary);
 
 let addBook = document.querySelector(".addBook");
 addBook.addEventListener("click",on);
+
 //addBook.addEventListener("click",off);
-
-function on(e){
-    document.querySelector(".overlay").style.display = "flex";
-}
-
-function off(e){
-    document.querySelector(".overlay").style.display = "none";
-}

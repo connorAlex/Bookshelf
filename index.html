@@ -8,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class = "header">My Bookshelf<button class = "addBook">Add Book</button></div>
-    <div class = "overlay">
+    <div class = "header">My Bookshelf</div>
+    <div class = "overlay" onclick = "off()">
         <div class = "entry">
             Submit a Book
             <input required id = "title" type = "text" placeholder="title">
@@ -27,25 +27,93 @@
    
     
     <div class = "container">
-        
+        <button class = "addBook">Add Book</button>
         <div class = "output">
             <div>
-                <div>asdf</div> 
-                <div>asdf</div> 
-                <div>asdf left</div>
-                <div>read?</div>
-                <button onclick="removeBook(0)" class="remove">
-                            X
-                </button>
+                
+                <div class = "title">
+                    The Hobbit
+                </div>
+                <div class = "author">JR. Tolkein</div>
+                <div> Has Read</div>
+                <div>XX pages</div>
+                
+                <div>
+                    <button id = "readCheckbox" data-item = "0" onclick = "readBook(this.dataset.item)"type = "checkbox" id = "read">Read</button>
+                    <button onclick = "removeBook(0)" class = "remove">x</button>
+                </div>
+                
             </div>
+            <div>
+                <div class = "title">Title</div> 
+                <div class = "author">author</div> 
+                <div>XX pages</div>
+                <div>
+                    Read? <input data-item = "1" onclick = "read()" type = "checkbox" id = "read">
+                </div>
+                <div>
+                    <button onclick = "removeBook(0)" class = "remove">
+                        X
+                    </button>
+                </div>
+                
+            </div>
+            <div>
+                <div class = "title">Title</div> 
+                <div class = "author">author</div> 
+                <div>XX pages</div>
+                <div>
+                    Read? <input onclick = "read()" type = "checkbox" id = "read">
+                </div>
+                <div>
+                    <button onclick = "removeBook(0)" class = "remove">
+                        X
+                    </button>
+                </div>
+                
+            </div>
+            <div>
+                <div class = "title">Title</div> 
+                <div class = "author">author</div> 
+                <div>XX pages</div>
+                <div>
+                    Read? <input onclick = "read(this.id)" type = "checkbox" id = "read">
+                </div>
+                <div>
+                    <button onclick = "removeBook(3)" class = "remove">
+                        X
+                    </button>
+                </div>
+                
+            </div>
+            <div>
+                <div class = "title">Title</div> 
+                <div class = "author">author</div> 
+                <div>XX pages</div>
+                <div>
+                    Read? <input onclick = "read()" type = "checkbox" id = "read">
+                </div>
+                <div>
+                    <button onclick = "removeBook(0)" class = "remove">
+                        X
+                    </button>
+                </div>
+                
+            </div>
+            
+            
+            
+            
+            
+
             <!--Books go here-->
         </div>
         
     </div>
     
-    
-
     </div>
+    <footer>Built by <a href = "https://github.com/connorAlex">Connor Cochrane</a></footer>
+
 </body>
 <script src = "script.js"></script>
 </html>
