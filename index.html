@@ -9,17 +9,17 @@
 </head>
 <body>
     <div class = "header">My Bookshelf</div>
-    <div class = "overlay" onclick = "off()">
+    <div class = "overlay">
         <div class = "entry">
             Submit a Book
-            <input required id = "title" type = "text" placeholder="title">
-            <input  required type = "text" id = "author" placeholder="author">
-            <input required type = "text" id = "pages" placeholder = "pages">
-            <input id = "read" placeholder = "Have you read this?" class = "datalist" list = "dlread">
-            <datalist id = "dlread">
+            <input required id = "title" type = "text" placeholder="Title">
+            <input  required type = "text" id = "author" placeholder="Author">
+            <input required type = "text" id = "pages" placeholder = "How Many Pages?">
+            <div>Already Read?<input type = "checkbox" id = "read" class = "datalist" list = "dlread"></div>
+            <!-- <datalist id = "dlread">
                 <option>Yes</option>
                 <option>No</option>
-            </datalist>
+            </datalist> -->
             <button class="add">Add to Shelf </button>
         
         </div>

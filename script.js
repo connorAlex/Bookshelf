@@ -6,13 +6,11 @@ function Book(title, author, pages){
     this.author = author;
     this.pages = pages;
     this.hasRead = false;
-  
-    //methods
-    function read(){
-        this.hasRead = true;
-    }
 }
 
+Book.prototype.read = function () {
+    this.hasRead = true;
+}
 //add book to an array
 function addBookToLibrary(){
     let data = validate();
@@ -20,15 +18,16 @@ function addBookToLibrary(){
     if (data === false){
         return 0;
     }
-
+    
     const newBook = new Book(data.title,data.author,data.pages);
     checkRead(data.read);
 
     myLibrary.push(newBook);
 
     function checkRead(isBookRead) {
-        if (isBookRead === "Yes") {
-            newBook.hasRead = true;
+        if (isBookRead === true) {
+            
+            newBook.read();
         }
     }
     off();
@@ -87,8 +86,8 @@ function validate(){
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').value;
-
+    let read = document.getElementById('read').checked;
+    console.log("this is read var: " + read);
     //let a = document.getElementsByTagName("input");
     
     let values = [title, author, pages ,read];
@@ -99,7 +98,7 @@ function validate(){
             return false;
         }
     }
-    document.getElementById('title').value = "";
+    
     //reset(values);
     return {'title':data[0], 'author':data[1], 'pages':data[2], 'read':data[3]};
 }
