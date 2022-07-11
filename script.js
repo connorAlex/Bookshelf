@@ -11,6 +11,14 @@ function Book(title, author, pages){
 Book.prototype.read = function () {
     this.hasRead = true;
 }
+
+const addHobbit = function() {
+    const hobbit = new Book("The Hobbit", "J.R. Tolkien",304);
+    myLibrary.push(hobbit);
+    showBooks();
+}
+addHobbit();
+
 //add book to an array
 function addBookToLibrary(){
     let data = validate();
