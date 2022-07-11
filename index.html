@@ -10,19 +10,16 @@
 <body>
     <div class = "header">My Bookshelf</div>
     <div class = "overlay">
-        <div class = "entry">
-            Submit a Book
-            <input required id = "title" type = "text" placeholder="Title">
-            <input  required type = "text" id = "author" placeholder="Author">
-            <input required type = "text" id = "pages" placeholder = "How Many Pages?">
-            <div>Already Read?<input type = "checkbox" id = "read" class = "datalist" list = "dlread"></div>
-            <!-- <datalist id = "dlread">
-                <option>Yes</option>
-                <option>No</option>
-            </datalist> -->
-            <button class="add">Add to Shelf </button>
+        <form class = "entry" onsubmit = "return false">
         
-        </div>
+            Submit a Book
+            <input required name = "title" type = "text" id = "title" placeholder="Title">
+            <input required type = "text" id = "author" placeholder="Author">
+            <input required type = "number" id = "pages" placeholder = "How Many Pages?">
+            <div>Already Read?<input type = "checkbox" id = "read" class = "datalist"></div>
+            <input type = "submit" class = "add" value = "Add to Shelf" onsubmit="addBookToLibrary()">
+            
+        </form>
     </div>
    
     

@@ -14,7 +14,7 @@ Book.prototype.read = function () {
 //add book to an array
 function addBookToLibrary(){
     let data = validate();
-
+ 
     if (data === false){
         return 0;
     }
@@ -81,23 +81,24 @@ function removeBook(id){
 // js validation for the different input elements
 // recreating the <form> functionality here... not good...
 function validate(){
-
+    console.log("validate fired");
     //these vars can be condensed to one line
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
+
     console.log("this is read var: " + read);
     //let a = document.getElementsByTagName("input");
     
     let values = [title, author, pages ,read];
     let data = values;
 
-    for (let i = 0; i < data.length; i++){
-        if (data[i] === ""){
-            return false;
-        }
-    }
+    // for (let i = 0; i < data.length; i++){
+    //     if (data[i] === ""){
+    //         return false;
+    //     }
+    // }
     
     //reset(values);
     return {'title':data[0], 'author':data[1], 'pages':data[2], 'read':data[3]};
