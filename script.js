@@ -39,6 +39,7 @@ function addBookToLibrary(){
 function showBooks(){
     let output = document.querySelector(".output");
     output.innerHTML = "";
+
     myLibrary.forEach(function (e,i) {
         let readOutput = "Unread";
         let readOutputInverse = "Read"
@@ -57,12 +58,12 @@ function showBooks(){
                 <div>${e.pages} pages</div>
                 <div>${readOutput}</div>
 
-                <div>
+                <div class = "options">
                     <button id = "readCheckbox" data-item = "${i}" onclick = "readBook(this.dataset.item)"> ${readOutputInverse} </button>
                     <button 
                             onclick = "removeBook(${i})" 
                             class = "remove">
-                                X
+                                Delete
                     </button>
                 </div>
 
@@ -79,36 +80,22 @@ function removeBook(id){
 }
 
 // js validation for the different input elements
-// recreating the <form> functionality here... not good...
 function validate(){
-    console.log("validate fired");
+    
     //these vars can be condensed to one line
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
-
-    console.log("this is read var: " + read);
     //let a = document.getElementsByTagName("input");
     
     let values = [title, author, pages ,read];
     let data = values;
-
-    // for (let i = 0; i < data.length; i++){
-    //     if (data[i] === ""){
-    //         return false;
-    //     }
-    // }
     
-    //reset(values);
     return {'title':data[0], 'author':data[1], 'pages':data[2], 'read':data[3]};
 }
 
-//reset the input values to empty string
-function reset(values){
-    values.forEach(e => {e = ""; console.log(e);});
-    
-}
+
 
 // create overlay
 function on(e){
@@ -126,13 +113,6 @@ function readBook(e){
     showBooks();
 }
 
-
-// Add event listeners to buttons
-
-let add = document.querySelector(".add");
-add.addEventListener("click",addBookToLibrary);
-
 let addBook = document.querySelector(".addBook");
 addBook.addEventListener("click",on);
 
-//addBook.addEventListener("click",off);
