@@ -1,3 +1,6 @@
+//Bookshelf
+
+//arr to hold books
 let myLibrary = [];
 
 class Book{
@@ -12,6 +15,7 @@ class Book{
     }
 }
 
+//add initial book to shelf
 const addHobbit = function() {
     const hobbit = new Book("The Hobbit", "J.R. Tolkien", 304);
     myLibrary.push(hobbit);
@@ -56,30 +60,32 @@ function showBooks(){
             readOutputInverse = "Unread";
         }
         
-
         //this is book object displayed on the "shelf"
         output.innerHTML =  
             `<div >   
-
                 <div class = "title">${e.title}</div>
                 <div class = "author">${e.author}</div>
                 <div>${e.pages} pages</div>
                 <div>${readOutput}</div>
-
                 <div class = "options">
-                    <button id = "readCheckbox" data-item = "${i}" onclick = "readBook(this.dataset.item)"> ${readOutputInverse} </button>
                     <button 
-                            onclick = "removeBook(${i})" 
-                            class = "remove">
-                                Delete
+                        id = "readCheckbox" 
+                        data-item = "${i}" 
+                        onclick = "readBook(this.dataset.item)"
+                    > 
+                        ${readOutputInverse} 
+                    </button>
+                    <button 
+                        onclick = "removeBook(${i})" 
+                        class = "remove"
+                    >
+                        Delete
                     </button>
                 </div>
-
             </div>` + output.innerHTML;
         }
     );    
 }
-
 
 //remove a specific book from the stack
 function removeBook(id){
@@ -89,13 +95,11 @@ function removeBook(id){
 
 // js validation for the different input elements
 function validate(){
-    
     //these vars can be condensed to one line
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
-    //let a = document.getElementsByTagName("input");
     
     let values = [title, author, pages ,read];
     let data = values;
