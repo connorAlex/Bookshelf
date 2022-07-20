@@ -1,19 +1,19 @@
 let myLibrary = [];
 
-function Book(title, author, pages){
-    //constructor
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasRead = false;
-}
-
-Book.prototype.read = function () {
-    this.hasRead = true;
+class Book{
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = false;
+    }
+    read() {
+        this.hasRead = true;
+    }
 }
 
 const addHobbit = function() {
-    const hobbit = new Book("The Hobbit", "J.R. Tolkien",304);
+    const hobbit = new Book("The Hobbit", "J.R. Tolkien", 304);
     myLibrary.push(hobbit);
     showBooks();
 }
