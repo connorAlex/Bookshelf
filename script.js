@@ -107,8 +107,6 @@ function validate(){
     return {'title':data[0], 'author':data[1], 'pages':data[2], 'read':data[3]};
 }
 
-
-
 // create overlay
 function on(e){
     document.querySelector(".overlay").style.display = "flex";
